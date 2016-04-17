@@ -1,10 +1,16 @@
-import React from 'react';
-import { Component } from 'react';
+var React = require('react');
+var CommentBox = require('./comment_box');
+var CommentList = require('./comment_list');
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>React simple starter</div>
-    );
-  }
-}
+var App = React.createClass({
+	render: function() {
+		return (
+			<div>
+				<CommentBox />
+				<CommentList />
+			</div>
+		)
+	}
+});
+
+module.exports = App;
