@@ -2,6 +2,8 @@
  * Created by albertwchang on 4/12/16.
  */
 var React = require('react');
+var { connect } = require('react-redux');
+import * as actions from '../actions';
 
 var CommentBox = React.createClass({
 	getInitialState: function() {
@@ -12,6 +14,7 @@ var CommentBox = React.createClass({
 	},
 	onSubmit: function(e) {
 		e.preventDefault();
+		this.props.saveComment(this.state.comment);
 		this.setState({comment: ''});
 	},
 	render: function() {
@@ -28,4 +31,5 @@ var CommentBox = React.createClass({
 	}
 });
 
-module.exports = CommentBox;
+var mapActionsToProps = connect(null, actions);
+module.exports = mapActionsToProps(CommentBox);
