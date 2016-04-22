@@ -4,7 +4,7 @@
 var { expect } = require('../test_helper');
 var { SAVE_COMMENT } = require('../../src/actions/types');
 var { saveComment } = require('../../src/actions/index');
-describe(':: ACTIONS ::', () => {
+describe(':: [redux] ACTIONS ::', () => {
 	describe('1. saveComment', () => {
 		it('has the correct type', () => {
 			const action = saveComment();

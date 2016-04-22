@@ -5,7 +5,7 @@ var {renderComponent, expect} = require('../test_helper');
 var CommentList = require('../../src/components/comment_list');
 var component;
 
-describe(':: Comment List ::', () => {
+describe(':: [ui] COMMENT LIST ::', () => {
 	beforeEach(() => {
 		const props = {
 			comments: ['Hello there', 'learning sux', 'Recycling is good!']

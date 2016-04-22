@@ -15,7 +15,7 @@ var CommentBox = React.createClass({
 	onSubmit: function(e) {
 		e.preventDefault();
 		this.props.saveComment(this.state.comment);
-		this.setState({comment: ''});
+		this.setState({comment: ''}); // reset input after committing comment
 	},
 	render: function() {
 		return (

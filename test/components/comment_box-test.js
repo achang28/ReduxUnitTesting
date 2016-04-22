@@ -9,7 +9,7 @@ beforeEach(() => {
 	component = renderComponent(CommentBox);
 });
 
-describe(':: Comment Box ::', () => {
+describe(':: [ui] COMMENT BOX ::', () => {
 	it('has the correct class', () => {
 		expect(component).to.have.class('comment-box');
 	});

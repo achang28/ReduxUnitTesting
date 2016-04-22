@@ -1,7 +1,7 @@
 var {renderComponent, expect} = require('../test_helper');
 var App = require('../../src/components/app');
 
-describe('React Appliation', () => {
+describe(':: [ui] REACT APPLICATION :: ', () => {
 	var component;
 	beforeEach(() => {
 		component = renderComponent(App);

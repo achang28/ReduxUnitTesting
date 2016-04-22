@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
+import commentsR from './commentsR';
 
-const rootReducer = combineReducers({
-  comments: function(state = []) {
-	  return state;
-  }
+var rootReducer = combineReducers({
+  comments: commentsR
 });
 
-export default rootReducer;
+module.exports = rootReducer;
