@@ -1,35 +1,40 @@
-import _$ from 'jquery';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
 import jsdom from 'jsdom';
+import jquery from 'jquery';
+import ReactDOM from 'react-dom'
+import TestUtils from 'react-addons-test-utils';
 import chai, { expect } from 'chai';
-import chaiJquery from 'chai-jquery';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import reducers from '../src/reducers';
+import reducers from '../src/reducers/indexR';
+import chaiJquery from 'chai-jquery';
+var _ = require('lodash');
 
+// Setup testing environment to run like browser in the command line
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
 global.window = global.document.defaultView;
-const $ = _$(window);
+const $ = jquery(global.window);
 
-chaiJquery(chai, chai.util, $);
-
-function renderComponent(ComponentClass, props = {}, state = {}) {
-  const componentInstance =  TestUtils.renderIntoDocument(
-    <Provider store={createStore(reducers, state)}>
-      <ComponentClass {...props} />
-    </Provider>
-  );
-
-  return $(ReactDOM.findDOMNode(componentInstance));
-}
-
-$.fn.simulate = function(eventName, value) {
-  if (value) {
-    this.val(value);
-  }
-  TestUtils.Simulate[eventName](this[0]);
+// build 'renderComponent' helper that renders a given React class
+var renderComponent = (ComponentClass, props = {}, state = {}) => {
+	var componentInstance = TestUtils.renderIntoDocument(
+		<Provider store={createStore(reducers, state)}>
+			<ComponentClass {...props} />
+		</Provider>
+	);
+	return $(ReactDOM.findDOMNode(componentInstance));
 };
 
-export {renderComponent, expect};
+// Build helper for simulating events
+$.fn.simulate = function(eventName, value) {
+	if (value) {
+		this.val(value);
+	}
+
+	var event = TestUtils.Simulate[eventName];
+	event(this[0]);
+}
+
+// Setup chai-jquery
+chaiJquery(chai, chai.util, $);
+export { renderComponent, expect };

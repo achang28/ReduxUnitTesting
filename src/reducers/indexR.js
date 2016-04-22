@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux';
 import commentsR from './commentsR';
+import { combineReducers } from 'redux';
 
 var rootReducer = combineReducers({
   comments: commentsR

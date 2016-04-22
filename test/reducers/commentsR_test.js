@@ -7,7 +7,7 @@ var { SAVE_COMMENT } = require('../../src/actions/types');
 import _ from 'lodash';
 
 describe(':: [reducer] COMMENTS ::', () => {
-	describe('Return default state (empty Array)', () => {
+	describe('1. Return default state (empty Array)', () => {
 		it('...null || undefined payload provided for payload', () => {
 			let action = { type: SAVE_COMMENT, payload: null };
 			expect(commentsReducer([], action)).to.be.instanceof(Array);
@@ -38,7 +38,7 @@ describe(':: [reducer] COMMENTS ::', () => {
 		});
 	});
 
-	describe('Returns a valid state array', () => {
+	describe('2. Returns a valid state array', () => {
 		it('...unallowed \'type\' && valid payload', () => {
 			let action = { type: SAVE_COMMENT, payload: 'testing 123' };
 			expect(commentsReducer([], action).length).not.to.equal(0);

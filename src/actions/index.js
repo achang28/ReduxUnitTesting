@@ -1,4 +1,4 @@
-var {SAVE_COMMENT} = require('./types');
+var { SAVE_COMMENT } = require('./types');
 
 export function saveComment(data) {
 	var comment;
